@@ -29,7 +29,7 @@ We will Be Doing an MVP of it Today with Ardiuno Microcontroller and some electr
 
 # Components Needed
 
-> **Add your photos:** put each component photo in `images/components/` using the file names below. They will appear in the table automatically.
+
 
 | Component | Qty | Used For | Image |
 |---|:---:|---|---|
