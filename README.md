@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Mickekofi/RafikiOS/blob/master/logo.png?raw=true" width="130">
+  <img src="https://github.com/Mickekofi/RafikiOS/blob/master/logo.jpg?raw=true" width="130">
 </p>
 
 <h1 align="center"><strong>A Smart Home Robotics: An Adaptable Environment Control Unit</strong></h1>
