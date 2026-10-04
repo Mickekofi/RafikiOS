@@ -239,3 +239,11 @@ You must use the onboard regulator. This acts as a shield, burning off the exces
 
 # Building The Software
 **How To Build The Flutter Software** → See [Software](./SOFTWARE.md)
+
+## 📞 CONTACT & SUPPORT
+
+For questions or support:
+- **WhatsApp**: [Contact Engineers](https://wa.me/233507326320?text=*RAFIKI_From_Github_💬Message_:*%20)
+- **GitHub**: Open an issue in the repository
+
+---
