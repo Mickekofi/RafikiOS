@@ -164,7 +164,6 @@ COPY AND PASTE THESE CODES IN YOUR Arduino IDE
 // ==========================================
 
 // Relay Logic Inversion
-// If the app is backward, flip HIGH and LOW right here.
 const int RELAY_ON = HIGH;  
 const int RELAY_OFF = LOW; 
 
@@ -178,19 +177,32 @@ const int SLOT_2_YEL   = 3; // Diagnostic
 const int SLOT_3_GRN   = 4; // Diagnostic
 const int SLOT_4_RELAY = 5; // Muscle Actuator
 
+// --- PRE-ALLOCATED DYNAMIC EXPANSION PORTS ---
+const int AUX_PORT_X = 6;  // Awaiting App Provisioning (Device 1)
+const int AUX_PORT_Y = 7;  // Awaiting App Provisioning (Device 2)
+const int AUX_PORT_Z = 12; // Awaiting App Provisioning (Device 3)
+
 void setup() {
   pinMode(SLOT_1_RED, OUTPUT);
   pinMode(SLOT_2_YEL, OUTPUT);
   pinMode(SLOT_3_GRN, OUTPUT);
   pinMode(SLOT_4_RELAY, OUTPUT);
+  
+  // Initialize dynamic ports as outputs
+  pinMode(AUX_PORT_X, OUTPUT);
+  pinMode(AUX_PORT_Y, OUTPUT);
+  pinMode(AUX_PORT_Z, OUTPUT);
 
-  // Initialize all slots OFF
+  // Initialize all diagnostic slots OFF
   digitalWrite(SLOT_1_RED, LOW);
   digitalWrite(SLOT_2_YEL, LOW);
   digitalWrite(SLOT_3_GRN, LOW);
   
-  // Initialize Relay OFF using our configuration variable
+  // Initialize all external relay channels to OFF state
   digitalWrite(SLOT_4_RELAY, RELAY_OFF); 
+  digitalWrite(AUX_PORT_X, RELAY_OFF);
+  digitalWrite(AUX_PORT_Y, RELAY_OFF);
+  digitalWrite(AUX_PORT_Z, RELAY_OFF);
 
   BTSerial.begin(9600);
 }
@@ -208,16 +220,23 @@ void loop() {
 // ==========================================
 void executeCommand(char cmd) {
   switch (cmd) {
+    // Standard Hardcoded Systems
     case 'A': digitalWrite(SLOT_1_RED, HIGH); break;
     case 'a': digitalWrite(SLOT_1_RED, LOW); break;
     case 'B': digitalWrite(SLOT_2_YEL, HIGH); break;
     case 'b': digitalWrite(SLOT_2_YEL, LOW); break;
     case 'C': digitalWrite(SLOT_3_GRN, HIGH); break;
     case 'c': digitalWrite(SLOT_3_GRN, LOW); break;
-    
-    // Use the Configuration variables for Actuation
     case 'F': digitalWrite(SLOT_4_RELAY, RELAY_ON); break;  
     case 'f': digitalWrite(SLOT_4_RELAY, RELAY_OFF); break; 
+    
+    // --- DYNAMIC A-ECU EXPANSION PORTS ---
+    case 'X': digitalWrite(AUX_PORT_X, RELAY_ON); break;
+    case 'x': digitalWrite(AUX_PORT_X, RELAY_OFF); break;
+    case 'Y': digitalWrite(AUX_PORT_Y, RELAY_ON); break;
+    case 'y': digitalWrite(AUX_PORT_Y, RELAY_OFF); break;
+    case 'Z': digitalWrite(AUX_PORT_Z, RELAY_ON); break;
+    case 'z': digitalWrite(AUX_PORT_Z, RELAY_OFF); break;
   }
 }
 ```
