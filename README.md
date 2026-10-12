@@ -19,6 +19,8 @@
 
 Rafiki Is An Adaptive Environment Control Unit that transforms any electrical appliance into a Smart Controllable Device Without Requiring the User to replace them
 
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/mickekofi/rafikios?utm_source=readme&utm_medium=badge)
+
 ![Preview](https://github.com/Mickekofi/RafikiOS/blob/master/Rafiki_Image.png?raw=true)
 
 We will Be Doing an MVP of it Today with Ardiuno Microcontroller and some electrical substances and modules and Our Own Customized Flutter Software... So that You Can Practice Too
